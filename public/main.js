@@ -136,7 +136,7 @@ var AddingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Quicksand');\r\n*{\r\n    font-family: 'Quicksand', sans-serif;\r\n    \r\n    background-image: url('bakkk.jpg');\r\n    background-size: cover;\r\n    background-position: center center;\r\n}\r\n\r\n\r\n"
+module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Quicksand');\r\n*{\r\n    font-family: 'Quicksand', sans-serif;  \r\n    background-image: url('bakkk.jpg');\r\n    background-size: cover;\r\n    background-position: center center;\r\n}\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -747,7 +747,7 @@ var HomeComponent = /** @class */ (function () {
         this.authService = authService;
         this.alertService = alertService;
         this.pik = null;
-        this.slika = "http://localhost:3000/artikli/image/";
+        this.slika = "/artikli/image/";
         /*
             this.items=[
              
@@ -905,7 +905,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<div class=\"container\">\n  <form (submit)=\"onLoginSubmit()\" class=\" col-md-6\" style=\"margin:0 auto;\">\n    <div class=\"text-left col-md-10\">\n      <br>\n\n      <img class=\"mb-4\" src=\"../../assets/slike/pic.jpg\" alt=\"\" width=\"100%\" height=\"auto \">\n      <h1 class=\"h3   mb-3 font-weight-normal\">Login</h1>\n    </div>\n\n    <div class=\" col-md-10\">\n      <input type=\"text\" id=\"inputEmail\" class=\"form-control \" [(ngModel)]=\"username\" name=\"username\"\n        placeholder=\"Username\">\n      <label for=\"inputEmail\">Username</label>\n    </div>\n\n    <div class=\" col-md-10\">\n      <input type=\"password\" id=\"inputPassword\" class=\"form-control \" [(ngModel)]=\"password\" name=\"password\"\n        placeholder=\"Password\">\n      <label for=\"inputPassword\">Password</label>\n    </div>\n\n\n    <button class=\"btn btn-lg btn-primary col-md-10 btn-block\" type=\"submit\">Sign in</button>\n\n  </form>\n</div>"
+module.exports = "<br>\n<div class=\"container\">\n  <form (submit)=\"onLoginSubmit()\" class=\" col-md-6\" style=\"margin:0 auto;\">\n    <div class=\"text-left col-md-10\">\n      <br>\n\n      <img class=\"mb-4\" src=\"../../assets/slike/pic.jpg\" alt=\"\" width=\"100%\" height=\"auto \">\n      <h1 class=\"h3   mb-3 font-weight-normal\">Login</h1>\n    </div>\n\n    \n    <div class=\" col-md-10\">\n      <input type=\"text\" id=\"inputEmail\" class=\"form-control \" [(ngModel)]=\"username\" name=\"username\"\n        placeholder=\"Username\">\n      <label for=\"inputEmail\">Username</label>\n    </div>\n\n    <div class=\" col-md-10\">\n      <input type=\"password\" id=\"inputPassword\" class=\"form-control \" [(ngModel)]=\"password\" name=\"password\"\n        placeholder=\"Password\">\n      <label for=\"inputPassword\">Password</label>\n    </div>\n\n\n    <button class=\"btn btn-lg btn-primary col-md-10 btn-block\" type=\"submit\">Sign in</button>\n\n  </form>\n</div>"
 
 /***/ }),
 
@@ -1308,26 +1308,26 @@ var ArtiService = /** @class */ (function () {
             formData.append('file', fileArt, fileArt.name);
         var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]();
         console.log(body);
-        return this.http.post('http://localhost:3000/artikli/add', formData, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
+        return this.http.post('/artikli/add', formData, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
     };
     ArtiService.prototype.getAllArtikle = function () {
         var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get('http://localhost:3000/artikli/all', { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
+        return this.http.get('/artikli/all', { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
     };
     ArtiService.prototype.brisi = function (ima) {
         var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]();
         this.authService.loadToken();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', this.authService.authToken);
-        return this.http.delete('http://localhost:3000/artikli/brisi/' + ima, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
+        return this.http.delete('/artikli/brisi/' + ima, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
     };
     ArtiService.prototype.deleteArtikal = function (artId) {
         var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]();
         this.authService.loadToken();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', this.authService.authToken);
-        return this.http.delete('http://localhost:3000/artikli/delete/' + artId, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
+        return this.http.delete('/artikli/delete/' + artId, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
     };
     ArtiService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1375,20 +1375,20 @@ var AuthService = /** @class */ (function () {
         var body = JSON.stringify(user);
         var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/users/register', user, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
+        return this.http.post('/users/register', user, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
     };
     AuthService.prototype.authenicateUser = function (user) {
         var body = JSON.stringify(user);
         var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/users/authenticate', user, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
+        return this.http.post('/users/authenticate', user, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
     };
     AuthService.prototype.getProfile = function () {
         var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.get('http://localhost:3000/users/profile', { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
+        return this.http.get('/users/profile', { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
     };
     AuthService.prototype.storeUserData = function (token, user) {
         localStorage.setItem('id_token', token);
@@ -1455,7 +1455,7 @@ var PorudzService = /** @class */ (function () {
         var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]();
         headers.append('Content-Type', 'application/json');
         console.log(porudz);
-        return this.http.post('http://localhost:3000/users/porudzbina', porudz, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
+        return this.http.post('/users/porudzbina', porudz, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
     };
     PorudzService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1579,7 +1579,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Bolee\Desktop\Led\AngularFront\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Bolee\Desktop\LedMaster\AngularFront\src\main.ts */"./src/main.ts");
 
 
 /***/ })

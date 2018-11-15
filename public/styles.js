@@ -580,8 +580,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Bolee\Desktop\Led\AngularFront\src\styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! C:\Users\Bolee\Desktop\Led\AngularFront\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+__webpack_require__(/*! C:\Users\Bolee\Desktop\LedMaster\AngularFront\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\Bolee\Desktop\LedMaster\AngularFront\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
 
 
 /***/ })
