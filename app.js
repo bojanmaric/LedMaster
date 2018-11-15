@@ -19,12 +19,11 @@ mongoose.connection.on('error', (err) => {
   console.log('Database error: '+err);
 });
 
-
 const app=express();
 
 
 
-const port=3000;
+const port=process.env.PORT || 8080;
 
 app.use(cors());
 
@@ -46,11 +45,11 @@ app.get('/',(req,res)=>{
     res.send('Invalid endpoint');
 });
 
-app.get('*',(req, res)=>{
-  res.sendfile(path.join(__dirname,'public/index.html'));
+app.get('**',(req, res)=>{
+  res.sendFile(path.join(__dirname,'public/index.html'));
 });
 
 app.listen(port,()=>{
-    console.log('Server started on port'+port);
+    console.log('Server started on port '+port);
 });
 
